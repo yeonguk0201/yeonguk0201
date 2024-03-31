@@ -39,9 +39,7 @@
 
 <h3>📫 Contact 📫</h3>
 <div>
-  <a href="https://velog.io/@yeonguk0201/posts" style="text-decoration:none">
-    <img src="https://img.shields.io/badge/Velog-1EBC8F?style=for-the-badge&logo=velog&logoColor=white" />&nbsp
-  </a>
+
   <a href="mailto:yeonguk0201@gmail.com" style="text-decoration:none">
     <img
       src="https://img.shields.io/badge/yeonguk0201@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>&nbsp
