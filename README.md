@@ -15,7 +15,6 @@
   <img src="https://img.shields.io/badge/Next.js-black?style=flat&logo=nextdotjs"/>
   <img src="https://img.shields.io/badge/TypeScript-007acc?style=flat&logo=typescript&logoColor=white"/>
   <img src="https://img.shields.io/badge/Tailwind-06b6d4?style=flat&logo=tailwindcss&logoColor=white"/>
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white"/>
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
@@ -36,6 +35,6 @@
 
 ## 📊 GitHub Stats
 <div align="center">
- <img src="https://github-readme-stats.vercel.app/api?username=summit1123&show_icons=true&theme=radical" />
- <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=summit1123&layout=compact&theme=radical&cache_seconds=1800&count_private=true&include_forks=true" />
+ <img src="https://github-readme-stats.vercel.app/api?username=yeonguk0201&show_icons=true&theme=radical" />
+ <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yeonguk0201&layout=compact&theme=radical&cache_seconds=1800&count_private=true&include_forks=true" />
 </div>
