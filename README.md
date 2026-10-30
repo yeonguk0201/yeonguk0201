@@ -6,9 +6,28 @@
 
 - 건물 안전진단 현장용 React PWA + Flutter 하이브리드 앱을 **프론트엔드 1인**으로 개발·운영했습니다.
 - IndexedDB 로컬 저장, 동기화 큐, 계정별 데이터 격리, Service Worker 캐싱, 인증 흐름까지 **오프라인 우선 구조**를 라이브러리 없이 설계했습니다.
+- 지금은 공연 알림 서비스 **encore.**를 혼자 개발·운영하며 PR 단위로 검증하고 배포합니다.
 - 문제는 감이 아니라 **측정**으로 찾고, 해결한 문제는 테스트·규칙 문서·AI 스킬로 남겨 반복되지 않게 합니다.
 
 ## 🎮 Now Building
+
+### [encore.](https://github.com/yeonguk0201/Concert_finder) · 1인 개발·운영 · 2026.10 ~ 진행 중
+
+> 좋아하는 밴드의 국내·내한 공연과 예매 일정을 모아 보고, 동의한 사용자에게 웹 푸시로 알려주는 모바일 대응 웹앱
+> 공식 출처 수집 → 검수 → 공개 → 알림까지 기획·디자인·프론트·DB·운영을 혼자 맡고 있습니다.
+
+```mermaid
+flowchart LR
+    S["공식 출처"] -->|"GitHub Actions 매시간 수집"| DB[("Supabase<br/>PostgreSQL · RLS")]
+    DB -->|"검수 후 공개 · Realtime"| W["React 19 웹앱"]
+    DB -->|"pg_cron 매분 · Edge Function"| P["Web Push"]
+```
+
+- **RLS 기반 접근 설계**: 공개 카탈로그는 승인 항목만, 찜·일정·알림 기기는 본인 행만
+- **중복 없는 알림**: 발송 직전 재조회, 유일 키, 404/410 무효화·429/5xx 재시도, 불명확한 결과는 재전송하지 않고 격리
+- **PR 단위 개발**: 작업 브랜치 → dev → main, PR마다 목적·변경·검증·제한 사항 기록 (커밋 259 · PR 64 · 테스트 220+)
+
+`React 19` `TypeScript` `Vite` `Supabase` `Edge Functions` `pg_cron` `Web Push` `GitHub Actions` `Vitest` `PGlite`
 
 ### [TrickalFanGame](https://github.com/yeonguk0201/Trickal_FanGame) · 1인 개발 · 2026.08 ~ 진행 중
 
@@ -55,9 +74,9 @@ flowchart LR
 
 <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white"> <img src="https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white"> <img src="https://img.shields.io/badge/C%23-512BD4?style=for-the-badge&logo=dotnet&logoColor=white">
 
-**Backend · Test**
+**Backend · Infra · Test**
 
-<img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white"> <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white"> <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white"> <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white">
+<img src="https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white"> <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white"> <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white"> <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white"> <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white"> <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white">
 
 **Tools · AI**
 
