@@ -13,19 +13,13 @@
 
 ### [encore.](https://github.com/yeonguk0201/Concert_finder) · 1인 개발·운영 · 2026.10 ~ 진행 중
 
-> 좋아하는 밴드의 국내·내한 공연과 예매 일정을 모아 보고, 동의한 사용자에게 웹 푸시로 알려주는 모바일 대응 웹앱
-> 공식 출처 수집 → 검수 → 공개 → 알림까지 기획·디자인·프론트·DB·운영을 혼자 맡고 있습니다.
+> 좋아하는 아티스트의 다음 한국 공연을 찾고, 예매 일정을 저장하고, 원하는 기기에서 웹 푸시를 받는 서비스입니다. 모바일 화면부터 공식 공연 데이터 수집, DB 접근 권한과 알림 발송까지 직접 설계하고 운영합니다.
 
-```mermaid
-flowchart LR
-    S["공식 출처"] -->|"GitHub Actions 매시간 수집"| DB[("Supabase<br/>PostgreSQL · RLS")]
-    DB -->|"검수 후 공개 · Realtime"| W["React 19 웹앱"]
-    DB -->|"pg_cron 매분 · Edge Function"| P["Web Push"]
-```
+- **공연 정보의 정확성** — KOPIS API에서 받은 장소·회차·전체 출연진을 코드로 대조합니다. 첫 운영 실행에서 공연 5건을 무알림으로 공개하고 비로그인 조회까지 확인했습니다.
+- **예매처 연결** — 같은 투어라도 도시와 회차가 다르면 예매 상품이 달라집니다. 공식 상품의 장소·기간·모든 회차가 일치할 때만 빈 예매 링크를 채웁니다.
+- **계정별 웹 푸시** — 찜과 저장 일정은 PostgreSQL RLS로 계정별로 격리합니다. 발송 직전에 동의와 기기를 다시 확인하고, 발송 결과를 알 수 없는 건은 격리해 중복 전송을 방지합니다.
 
-- **RLS 기반 접근 설계**: 공개 카탈로그는 승인 항목만, 찜·일정·알림 기기는 본인 행만
-- **중복 없는 알림**: 발송 직전 재조회, 유일 키, 404/410 무효화·429/5xx 재시도, 불명확한 결과는 재전송하지 않고 격리
-- **PR 단위 개발**: 작업 브랜치 → dev → main, PR마다 목적·변경·검증·제한 사항 기록 (커밋 259 · PR 64 · 테스트 220+)
+[공연 수집·공개 검증 기록](https://github.com/yeonguk0201/Concert_finder/blob/dev/docs/release/local-ui-and-concert-dedup-handoff.md) · [웹 푸시 기기 검증](https://github.com/yeonguk0201/Concert_finder/blob/dev/docs/notifications.md)
 
 `React 19` `TypeScript` `Vite` `Supabase` `Edge Functions` `pg_cron` `Web Push` `GitHub Actions` `Vitest` `PGlite`
 
