@@ -23,23 +23,24 @@
 
 `React 19` `TypeScript` `Vite` `Supabase` `Edge Functions` `pg_cron` `Web Push` `GitHub Actions` `Vitest` `PGlite`
 
-### [TrickalFanGame](https://github.com/yeonguk0201/Trickal_FanGame) · 1인 개발 · 2026.08 ~ 진행 중
+### [TrickalFanGame](https://github.com/yeonguk0201/Trickal_FanGame) · 1인 개발 · 2026.08 ~ 진행 중 · 베타 준비
 
 > 트릭컬 IP 기반 2D 로그라이크 팬게임(비상업) + 플레이 기록을 보여주는 전적 검색 웹
-> 게임 → API → DB → 웹까지 데이터 흐름 전체를 혼자 설계·구현하고 있습니다.
+> 게임 → API → DB → 웹 → 배포까지 데이터 흐름 전체를 혼자 설계·구현하고 있습니다. **[전적 웹 보기](https://trickal-fan-game.vercel.app)**
 
 ```mermaid
 flowchart LR
-    G["Unity Game<br/>C# · 전투 · seed 맵 생성"] -->|REST| B["Backend API<br/>NestJS · Prisma<br/>멱등 저장 · 서버 계산"]
-    W["전적 검색 Web<br/>Next.js · React"] -->|REST| B
-    B --> D[("PostgreSQL")]
+    G["Unity Game<br/>C# · seed 맵 생성<br/>로컬 프로필 · 전송 대기열"] -->|"REST · 기기 키"| B["Backend API<br/>NestJS · Prisma · Render<br/>멱등 저장 · 서버 계산"]
+    W["전적 검색 Web<br/>Next.js · Vercel"] -->|"REST · 조회 전용"| B
+    B --> D[("PostgreSQL<br/>Neon")]
 ```
 
-- **재전송해도 한 번만 저장되는 API**: Run 고유 ID + 유니크 제약 + 요청 지문, Serializable 트랜잭션
-- **seed로 재현되는 맵 생성**: 같은 seed면 층·방·적 구성이 동일 → 버그를 같은 조건에서 재현
-- **AI 결과물을 코드로 검증**: Unity 불변조건 검증기 130개, Jest 테스트 108개, 커밋 전 검사 · `/ship` 스킬 · main 보호 훅
+- **서버가 꺼져도 멈추지 않는 게임**: 로컬 프로필로 바로 시작하고, Run 결과·스킬 강화는 대기열에 쌓았다가 서버가 살아나면 순서대로 동기화 — 실무에서 만든 오프라인 우선 구조를 게임에 다시 적용
+- **재전송해도 한 번만 저장되는 API**: Run 고유 ID + 유니크 제약 + 요청 지문, Serializable 트랜잭션, 로그인 없이 기기 키로 쓰기 소유권 확인
+- **seed로 재현되는 맵 생성**: 같은 seed면 층·방·적 구성이 동일 → 버그를 같은 조건에서 재현. 방 52종은 텍스트 Layout으로 작성하고 가져올 때 경로·스폰을 검증
+- **AI 결과물을 코드로 검증**: Unity 불변조건 검증기 200여 개, Jest 테스트 191개, Unity↔Backend 계약 대조, 커밋 전 검사 · `/ship` 스킬 · main 보호 훅
 
-`Unity 6` `C#` `NestJS` `Prisma` `PostgreSQL` `Next.js 16` `React 19` `Jest` `Vitest` `Claude Code`
+`Unity 6` `C#` `NestJS` `Prisma` `PostgreSQL` `Next.js 16` `React 19` `Render` `Vercel` `Jest` `Vitest` `Claude Code`
 
 ## 💼 Experience
 
